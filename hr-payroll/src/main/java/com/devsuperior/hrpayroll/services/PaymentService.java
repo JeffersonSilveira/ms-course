@@ -1,8 +1,5 @@
 package com.devsuperior.hrpayroll.services;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +9,7 @@ import com.devsuperior.hrpayroll.feignclients.WorkerFeignClient;
 
 @Service
 public class PaymentService {
-	
+
 	@Autowired
 	private WorkerFeignClient workerFeignClient;
 
