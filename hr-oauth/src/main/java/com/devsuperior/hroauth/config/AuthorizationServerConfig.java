@@ -17,10 +17,10 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
 
 	@Autowired
-	private BCryptPasswordEncoder passwordEncode;
+	private BCryptPasswordEncoder passwordEncoder;
 
 	@Autowired
-	private JwtAccessTokenConverter accessTokenConveter;
+	private JwtAccessTokenConverter accessTokenConverter;
 
 	@Autowired
 	private JwtTokenStore tokenStore;
@@ -37,7 +37,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 		clients.inMemory()
 		.withClient("myappname123")
-		.secret(passwordEncode.encode("myappsecret123"))
+		.secret(passwordEncoder.encode("myappsecret123"))
 		.scopes("read", "write")
 		.authorizedGrantTypes("password")
 		.accessTokenValiditySeconds(86400);
@@ -45,10 +45,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
 	@Override
 	public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-	
 		endpoints.authenticationManager(authenticationManager)
 		.tokenStore(tokenStore)
-		.accessTokenConverter(accessTokenConveter);
+		.accessTokenConverter(accessTokenConverter);
 	}
-
 }

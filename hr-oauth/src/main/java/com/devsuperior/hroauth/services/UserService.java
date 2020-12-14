@@ -34,7 +34,7 @@ public class UserService implements UserDetailsService {
 		User user = userFeignClient.findByEmail(username).getBody();
 		if (user == null) {
 			logger.error("Email not found: " + username);
-			throw new UsernameNotFoundException("Email not fond");
+			throw new UsernameNotFoundException("Email not found");
 		}
 		logger.info("Email found: " + username);
 		return user;
