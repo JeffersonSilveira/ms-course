@@ -7,7 +7,7 @@ public class Role implements Serializable {
 
 	private Long id;
 	private String roleName;
-
+	
 	public Role() {
 	}
 
@@ -31,10 +31,6 @@ public class Role implements Serializable {
 
 	public void setRoleName(String roleName) {
 		this.roleName = roleName;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
 	}
 
 	@Override
@@ -61,5 +57,4 @@ public class Role implements Serializable {
 			return false;
 		return true;
 	}
-
 }

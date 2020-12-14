@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import org.springframework.security.core.GrantedAuthority;
@@ -16,12 +15,11 @@ public class User implements UserDetails, Serializable {
 
 	private Long id;
 	private String name;
-
 	private String email;
 	private String password;
-
+	
 	private Set<Role> roles = new HashSet<>();
-
+	
 	public User() {
 	}
 
@@ -64,6 +62,10 @@ public class User implements UserDetails, Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	public Set<Role> getRoles() {
+		return roles;
+	}
 
 	@Override
 	public int hashCode() {
@@ -71,10 +73,6 @@ public class User implements UserDetails, Serializable {
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
-	}
-
-	public Set<Role> getRoles() {
-		return roles;
 	}
 
 	@Override

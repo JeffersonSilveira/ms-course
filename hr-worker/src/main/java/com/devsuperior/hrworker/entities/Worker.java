@@ -1,4 +1,5 @@
 package com.devsuperior.hrworker.entities;
+
 import java.io.Serializable;
 
 import javax.persistence.Entity;

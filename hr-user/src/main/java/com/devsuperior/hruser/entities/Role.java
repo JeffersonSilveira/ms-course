@@ -17,7 +17,7 @@ public class Role implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String roleName;
-
+	
 	public Role() {
 	}
 
@@ -41,10 +41,6 @@ public class Role implements Serializable {
 
 	public void setRoleName(String roleName) {
 		this.roleName = roleName;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
 	}
 
 	@Override
@@ -71,5 +67,4 @@ public class Role implements Serializable {
 			return false;
 		return true;
 	}
-
 }
