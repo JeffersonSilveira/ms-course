@@ -49,7 +49,7 @@ ADD ./target/hr-config-server-0.0.1-SNAPSHOT.jar hr-config-server.jar
 ENTRYPOINT ["java","-jar","/hr-config-server.jar"]
 ``` 
 ```
-mvnw clean package
+.\mvnw clean package
 docker build -t hr-config-server:v1 .
 docker run hr-config-server:v1 -p 8888:8888 --name hr-config-server --network hr-net -e GITHUB_USER=acenelio -e GITHUB_PASS=
 ```
@@ -63,7 +63,7 @@ ADD ./target/hr-eureka-server-0.0.1-SNAPSHOT.jar hr-eureka-server.jar
 ENTRYPOINT ["java","-jar","/hr-eureka-server.jar"]
 ``` 
 ```
-mvnw clean package
+.\mvnw clean package
 docker build -t hr-eureka-server:v1 .
 docker run hr-eureka-server:v1 -p 8761:8761 --name hr-eureka-server --network hr-net
 ```
@@ -76,7 +76,7 @@ ADD ./target/hr-worker-0.0.1-SNAPSHOT.jar hr-worker.jar
 ENTRYPOINT ["java","-jar","/hr-worker.jar"]
 ``` 
 ```
-mvnw clean package -DskipTests
+.\mvnw clean package -DskipTests
 docker build -t hr-worker:v1 .
 docker run hr-worker:v1 -P --network hr-net
 ```
